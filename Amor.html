@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Você aceita?</title>
+        <link rel="icon" href="imagens/amor.png">
+        <link rel="stylesheet" href="style.css">
+
+            <style>
+
+                body 
+                {
+                    background-color: #f6dfdf;
+                    margin: 0;
+                    padding: 0;
+                    font-family: 'Comic Sans MS', cursive, sans-serif;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+
+                #conteudo 
+                {
+                    text-align: center;
+                }
+
+                h2 
+                {
+                    color: #000000;
+                    text-shadow: 2px 2px 4px #ffffff;
+                    font-size: 28px;
+                    margin-bottom: 20px;
+                }
+
+                button 
+                {
+                    background-color: #ff51ae; 
+                    color: #ffffff;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 30px;
+                    cursor: pointer;
+                    font-size: 32px;
+                    font-weight: bold;
+                    box-shadow: 2px 2px 4px #ff0073;
+                    transition: all 0.3s ease;
+                    margin: 10px;
+                }
+
+                button:hover 
+                {
+                    transform: translateY(-3px);
+                    box-shadow: 4px 4px 6px #ff7eb9;
+                }
+
+                #naoButton 
+                {
+                    background-color: #e6e6fa;
+                    border: 2px solid #ff7eb9;
+                    color: #4B0082;
+                    
+                }
+
+                .container 
+                {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    background-color: #fff;
+                    padding: 20px;
+                    border-radius: 20px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+
+                .heart 
+                {
+                    color: #ff1493;
+                    animation: pulse 1s infinite alternate;
+                    font-size: 36px;
+                }
+
+                @keyframes pulse 
+                {
+                    from {
+                        transform: scale(1);
+                    }
+                    to {
+                        transform: scale(1.2);
+                    }
+                }
+            </style>
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="conteudo">
+
+                <h2>Você aceita casar comigo?</h2>
+
+                <div>
+                    <button id="simButton">Sim <span class="heart">❤️</span></button>
+                    <button id="naoButton">Não 💔</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <audio id="myAudio" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+
+        <script>
+
+            var audio = new Audio("https://www.soundjay.com/button/love-song.mp3");
+
+            document.getElementById("simButton").addEventListener("click", function() {
+                audio.play();
+                alert("Você aceitou casar comigo! 😍");
+                //colocar aqui o outro programa onde fala ilove you e tem varias luzes piscando 
+            });
+
+            document.getElementById("naoButton").addEventListener("click", function() 
+            {
+                audio.play();
+                var btn = document.getElementById("naoButton");
+                btn.style.position = 'absolute';
+                btn.style.bottom = geraPosicao(10, 90);
+                btn.style.left = geraPosicao(10, 90);
+                console.log('opa, desviei...');
+            });
+
+            function geraPosicao(min, max) 
+            {
+                return (Math.random() * (max - min) + min) + "%";
+            }
+
+        </script>
+    </body>
+</html>
